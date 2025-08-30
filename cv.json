@@ -5,7 +5,7 @@
     "image": "/me_avatar.jpg",
     "email": "hemelo@pm.me",
     "phone": "+55 31 98686-9137",
-    "url": "https://johndoe.dev",
+    "url": "https://resume.hemelo.fyi",
     "summary": "Results-driven Software Engineer with a proven track record of delivering high-quality solutions that drive business value. With strong skills at translating complex requirements into efficient, scalable applications that exceed expectations.",
     "theme": "blue",
     "location": {
@@ -39,12 +39,12 @@
       {
         "network": "Portfolio",
         "username": "hemelo",
-        "url": "https://johndoe.dev"
+        "url": "https://portfolio.hemelo.fyi"
       },
       {
         "network": "Blog",
         "username": "hemelo",
-        "url": "https://blog.johndoe.dev"
+        "url": "https://blog.hemelo.fyi"
       }
     ]
   },
@@ -335,7 +335,7 @@
         "Responsive design with modern UI/UX",
         "Print-friendly layout for CV export"
       ],
-      "url": "https://johndoe.dev",
+      "url": "https://resume.hemelo.fyi",
       "github": "https://github.com/hemelo/cv"
     }
   ],
