@@ -1,0 +1,44 @@
+---
+import Section from "../Section.astro";
+import { getInterests } from "@/utils/cv";
+import { t } from "@/utils/translations";
+
+const currentLang = Astro.url.pathname.startsWith("/pt-br") ? "pt-br" : "en";
+const interests = getInterests(currentLang);
+---
+
+<Section className={`no-print ${Astro.props.className ?? ""}`} title={t(currentLang, "interests")}>
+  {interests && interests.length > 0 && (
+    <ul class="flex flex-col gap-4 [&>li]:text-sm print:py-2">
+      {interests.map(({ name, keywords }) => (
+        <li class="grid grid-cols-12 items-start gap-2 rounded-md border border-skin-muted py-1 text-skin-base">
+          <span class="col-span-3 font-medium">{name}</span>
+          {Array.isArray(keywords) && keywords.length > 0 && (
+            <div class="col-span-9 flex flex-wrap gap-1.5">
+              {keywords.map((kw) => (
+                <span class="interest-tag">{kw}</span>
+              ))}
+            </div>
+          )}
+        </li>
+      ))}
+    </ul>
+  )}
+  {(!interests || interests.length === 0) && (
+    <p class="text-skin-muted">—</p>
+  )}
+</Section>
+
+<style>
+  .interest-tag {
+    background: rgb(var(--color-fill));
+    color: rgb(var(--color-text-base));
+    padding: 2px 8px;
+    border-radius: 9999px;
+    font-size: 11px;
+    border: 1px solid rgb(var(--muted));
+    white-space: nowrap;
+  }
+</style>
+
+

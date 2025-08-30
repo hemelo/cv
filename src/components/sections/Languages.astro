@@ -1,0 +1,65 @@
+---
+import Section from "../Section.astro";
+import { getLanguages } from "@/utils/cv";
+import { t } from "@/utils/translations";
+
+const currentLang = Astro.url.pathname.startsWith("/pt-br") ? "pt-br" : "en";
+const languages = getLanguages(currentLang);
+---
+
+<Section className={Astro.props.className} title={t(currentLang, "languages")}>
+  {languages && languages.length > 0 && (
+    <ul class="inline-flex flex-wrap gap-3 [&>li]:text-sm">
+      {languages.map(({ language, fluency }) => (
+        <li class="flex items-center gap-2 rounded-md border border-skin-muted py-1 pr-0 text-skin-base">
+          <span class="font-medium">{language}</span>
+          {fluency && (
+            <span class="language-tag">{fluency}</span>
+          )}
+        </li>
+      ))}
+    </ul>
+  )}
+  {languages && languages.length > 0 && (
+    <div class="print-languages print:block hidden">
+      <p class="print:text-xs print:leading-relaxed">
+        {languages.map(({ language, fluency }, index) => {
+          const text = fluency ? `${language} (${fluency})` : language;
+          if (index === languages.length - 1) {
+            return <span>{text}.</span>;
+          } else {
+            return <span>{text}, </span>;
+          }
+        })}
+      </p>
+    </div>
+  )}
+  {(!languages || languages.length === 0) && (
+    <p class="text-skin-muted">—</p>
+  )}
+</Section>
+
+<style>
+  .language-tag {
+    background: rgb(var(--color-fill));
+    color: rgb(var(--color-text-base));
+    padding: 2px 8px;
+    border-radius: 9999px;
+    font-size: 11px;
+    border: 1px solid rgb(var(--muted));
+    white-space: nowrap;
+  }
+
+  @media print {
+    ul {
+      display: none !important;
+    }
+    .print-languages p {
+      margin: 0;
+      color: rgb(var(--color-text-base));
+      text-wrap: pretty;
+    }
+  }
+</style>
+
+

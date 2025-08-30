@@ -1,16 +1,17 @@
 export interface CV {
   basics: Basics;
   work: Array<Work>;
-  volunteer: Array<Volunteer>;
+  volunteer?: Array<Volunteer>;
   education: Array<Education>;
-  awards: Array<Awards>;
+  awards?: Array<Awards>;
   certificates: Array<Certificates>;
-  publications: Array<Publications>;
+  publications?: Array<Publications>;
   skills: Array<Skills>;
   languages: Array<Languages>;
   interests: Array<Interests>;
-  references: Array<References>;
+  references?: Array<References>;
   projects: Array<Projects>;
+  footer?: Footer;
 }
 
 interface Basics {
@@ -21,6 +22,7 @@ interface Basics {
   phone: string;
   url: string;
   summary: string;
+  theme?: string;
   location: Location;
   profiles: Array<Profiles>;
 }
@@ -42,6 +44,20 @@ interface Profiles {
 interface Work {
   name: string;
   position: string;
+  location_type?: string;
+  location?: string;
+  url: string;
+  startDate: DateStr;
+  endDate: DateStr | null;
+  summary: string;
+  responsibilities?: string[];
+  highlights: Highlight;
+  skills?: string[];
+}
+
+interface Volunteer {
+  organization: string;
+  position: string;
   url: string;
   startDate: DateStr;
   endDate: DateStr | null;
@@ -51,19 +67,9 @@ interface Work {
 
 type DateStr = `${string}-${string}-${string}`;
 
-interface Volunteer {
-  organization: string;
-  position: string;
-  url: string;
-  startDate: DateStr;
-  endDate: DateStr;
-  summary: string;
-  highlights: Highlight;
-}
-
 interface Skills {
   name: string;
-  level: string;
+  level: number;
   keywords: Array<string>;
 }
 
@@ -140,6 +146,10 @@ interface Interests {
 interface References {
   name: string;
   reference: string;
+}
+
+interface Footer {
+  url: string;
 }
 
 type Highlight = Array<String>;

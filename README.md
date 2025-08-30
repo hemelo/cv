@@ -1,62 +1,31 @@
-## Print-friendly portfolio CV
+# Henrique Melo - Software Engineer
 
-![preview](https://github.com/user-attachments/assets/44c47034-06e4-412a-b9dd-014593b32215)
+Results-driven Software Engineer with a proven track record of delivering high-quality solutions that drive business value. I excel at translating complex requirements into efficient, scalable applications that exceed expectations.
 
-![Astro Badge](https://img.shields.io/badge/Astro-BC52EE?logo=astro&logoColor=fff&style=flat)
-![TailwindCSS](https://img.shields.io/badge/tailwindcss-0F172A?&logo=tailwindcss)
-![GitHub stars](https://img.shields.io/github/stars/Smilesharks/dev-portfolio)
-![GitHub issues](https://img.shields.io/github/issues/Smilesharks/dev-portfolio)
-![GitHub forks](https://img.shields.io/github/forks/Smilesharks/dev-portfolio)
-![GitHub PRs](https://img.shields.io/github/issues-pr/Smilesharks/dev-portfolio)
+With strong problem-solving skills and a collaborative approach, I consistently contribute to team success while maintaining high standards for code quality and user experience. I'm passionate about continuous improvement and thrive in dynamic environments where I can make meaningful contributions to impactful projects.
 
-## 🛠️ Stack
+## 🚀 About Me
 
-- [**Astro**](https://astro.build/) - The next-gen web framework.
-- [**Typescript**](https://www.typescriptlang.org/) - JavaScript with type syntax.
-- [**Ninja Keys**](https://github.com/ssleptsov/ninja-keys) - Dropdown menu with keyboard shortcuts made in pure JavaScript.
+I'm a Software Engineer with experience in developing web applications and software solutions. I'm always looking for new challenges and opportunities to grow professionally while delivering value to companies and projects.
 
-## 🚀 Getting Started
+## 📫 Get In Touch
 
-### 1. Use this Repo as an Astro Project Template
+- **Email:** [hemelo@pm.me](mailto:hemelo@pm.me)
 
-- I use [pnpm](https://pnpm.io/installation) as my package manager.
+## 🌐 Social Media
 
-```bash
-# Enable pnpm on MacOS, WSL & Linux:
-corepack enable
-corepack prepare pnpm@latest --activate
-```
+- **LinkedIn:** [henriquefcmelo](https://linkedin.com/in/henriquefcmelo)
+- **X (Twitter):** [hemelodev](https://x.com/hemelodev)
+- **GitHub:** [hemelo](https://github.com/hemelo)
 
-# Initialize the project
-```bash
-pnpm create astro@latest -- --template Smilesharks/dev-portfolio
-```
+## 🛠️ Technical Skills
 
-### 2. Add Your Content:
+I work with various technologies including React, TypeScript, Node.js, and modern web development tools. I'm experienced in both frontend and backend development, with a focus on creating scalable and maintainable applications.
 
-Edit the `cv.json` file to create your own printable Portfolio/CV.
+## 📄 Portfolio
 
-### 3. Launch the Development Server:
+This repository contains my personal portfolio and CV, built with modern web technologies. Feel free to explore my projects and experience.
 
-```bash
-# Enjoy the results
-pnpm dev
-```
-1. Open [**http://localhost:4321**](http://localhost:4321/) in your browser to view the result 🚀
+---
 
-### 4. Customisable colours:
-Change the data-theme of `cv.json` and choose one of the colour themes defined in theme.css, red, blue, green, cyber and default, with its variants in dark mode, or create your own.
-
-## 🧞 Commands
-
-|     | Command         | Action                                                                       |
-| :-- | :-------------- | :--------------------------------------------------------------------------- |
-| ⚙️  | `dev` o `start` | Launches a local development server at `localhost:4321`.                   |
-| ⚙️  | `build`         | Checks for errors and creates a production build in `./dist/`. |
-| ⚙️  | `preview`       | Local preview at `localhost:4321`                                       |
-
-Wiki: [dev-portfolio](https://deepwiki.com/Smilesharks/dev-portfolio)
-
-CV JSON schema from [**jsonresume.org**](https://jsonresume.org/schema/)
-
-Based on [**Bartosz Jarocki - Print-friendly, minimalist CV page**](https://github.com/BartoszJarocki/cv) and [**Miguel Ángel Durán - minimalist-portfolio-json**](https://github.com/midudev/minimalist-portfolio-json)
+_This portfolio is built using Astro and TailwindCSS, providing a print-friendly and responsive design._

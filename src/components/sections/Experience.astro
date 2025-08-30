@@ -1,51 +1,75 @@
 ---
 import Section from "../Section.astro"
-import { work } from "@cv"
+import { getWork, getSkills } from "@/utils/cv"
+import { t } from "@/utils/translations"
+import SonarQube from "@/icons/SonarQube.astro"
+import CSharp from "@/icons/CSharp.astro";
+import Java from "@/icons/Java.astro";
+import type { Language } from "@/utils/translations";
 
-import HTML from "@/icons/html.astro"
-import CSS from "@/icons/css.astro"
-import JavaScript from "@/icons/javascript.astro"
-import TypeScript from "@/icons/type.astro"
-import React from "@/icons/react.astro"
-import Node from "@/icons/node.astro"
-import MySQL from "@/icons/sql.astro"
-import Git from "@/icons/git.astro"
-import GitHub from "@/icons/GitHub.astro"
-import Tailwind from "@/icons/tailwind.astro"
-import Next from "@/icons/next.astro"
-import Swift from "@/icons/swift.astro"
-import SwiftUI from "@/icons/swiftui.astro"
-import Kotlin from "@/icons/kotlin.astro"
-import Flutter from "@/icons/flutter.astro"
+// Skill level mapping for display
+const getLevelDisplay = (level: number, lang: string) => {
+  const levelKey = `skillLevel${level}`;
+  return t(lang, levelKey);
+};
 
-const SKILLS_ICONS: Record<string, any> = {
-  HTML,
-  CSS,
-  JavaScript,
-  TypeScript,
-  React,
-  Node,
-  MySQL,
-  Git,
-  GitHub,
-  Next,
-  Tailwind,
-  Swift,
-  SwiftUI,
-  Kotlin,
-  Flutter,
+// Function to get skill level from main skills data
+const getSkillLevel = (skillName: string, lang: Language) => {
+  const skills = getSkills(lang);
+  const skill = skills.find(s => s.name === skillName);
+  return skill?.level || 3; // Default to intermediate if not found
+};
+
+const currentLang = Astro.url.pathname.startsWith('/pt-br') ? 'pt-br' : 'en';
+const work = getWork(currentLang);
+
+// Use official brand icons from Simple Icons CDN when available.
+// Keys should match the values found under each work item's `skills` array.
+const REMOTE_BRAND_SLUG: Record<string, string> = {
+  HTML: "html5",
+  CSS: "css3",
+  JavaScript: "javascript",
+  TypeScript: "typescript",
+  React: "react",
+  "Next.js": "nextdotjs",
+  Next: "nextdotjs",
+  Node: "nodedotjs",
+  "Node.js": "nodedotjs",
+  MySQL: "mysql",
+  PostgreSQL: "postgresql",
+  Git: "git",
+  GitHub: "github",
+  Tailwind: "tailwindcss",
+  "Tailwind CSS": "tailwindcss",
+  Swift: "swift",
+  Kotlin: "kotlin",
+  Flutter: "flutter",
+  "Spring Boot": "springboot",
+  Angular: "angular",
+  ".NET": "dotnet",
+  "C++": "cplusplus",
+  RabbitMQ: "rabbitmq",
+  Docker: "docker",
+  Jenkins: "jenkins",
+  "ASP.NET": "dotnet"
+}
+
+const LOCAL_ICONS: Record<string, any> = {
+  SonarQube,
+  Java,
+  CSharp
 }
 ---
-<Section className={Astro.props.className} title="Experience">
+<Section className={Astro.props.className} title={t(currentLang, "experience")}>
   <ul class="flex flex-col">
-    {work.map(({ name, startDate, endDate, position, summary, responsibilities, achievements, url, skills, location, location_type }) => {
+    {work.map(({ name, startDate, endDate, position, summary, responsibilities, highlights, url, skills, location, location_type }) => {
       const startYear = new Date(startDate).getFullYear()
       const endYear = endDate != null ? new Date(endDate).getFullYear() : "Present"
 
       return (
         <li class="relative print:py-2">
           <div class="group relative grid pb-1 print:pb-0 transition-all print:grid-cols-1 print:gap-1 sm:grid-cols-12 sm:gap-8 md:gap-6 lg:hover:!opacity-100 ">
-            <header class="relative mt-1 text-xs font-semibold sm:col-span-2">
+            <header class="relative mt-1 text-xs print:font-normal print:text-skin-muted font-semibold sm:col-span-2">
               <time datetime={startDate} data-title={startDate}>{startYear}</time> - <time datetime={endDate} data-title={endDate}>{endYear}</time>
             </header>
             <div class="relative flex flex-col pb-6 print:pb-0 before:-ml-6 sm:col-span-10 before:w-px print:before:hidden before:absolute before:bg-skin-muted before:h-full before:mt-2">
@@ -73,10 +97,10 @@ const SKILLS_ICONS: Record<string, any> = {
                   {location} {location && location_type && '-'} {location_type}
                 </div>
               )}
-              <div class="mt-4  print:gap-0 flex flex-col gap-4 print:text-xs text-sm" x-data="{ expanded: false }">
+              <div class="mt-4 print:gap-0 flex flex-col gap-4 print:text-xs text-sm" x-data="{ expanded: false }">
                 {summary && (
-                  <div class="flex flex-col gap-1">
-                    <h4>Summary:</h4>
+                  <div class="flex flex-col gap-1 no-print">
+                    <h4>{t(currentLang, "summary")}:</h4>
                     <ul class="text-skin-muted [&>li]:ml-4 flex list-disc flex-col gap-2">
                       {Array.isArray(summary) ? (
                         summary.map(item => (
@@ -89,11 +113,11 @@ const SKILLS_ICONS: Record<string, any> = {
                   </div>
                 )}
 
-                {(responsibilities || achievements) &&  (
-                <div class="md:after:from-skin-hue dark:md:after:to-skin-hue/0  flex relative flex-col max-sm:!h-auto print:!h-auto gap-4 print:gap-2 md:after:bg-gradient-to-t md:after:absolute md:after:bottom-0 md:after:w-full print:after:hidden md:after:h-12 md:after:content-[''] " :class="expanded ? 'after:hidden' : ''" x-show="expanded" x-collapse.min.50px>
+                {(responsibilities || highlights) &&  (
+                <div class="md:after:from-skin-hue dark:md:after:to-skin-hue/0  flex relative flex-col max-sm:!h-auto print:!h-auto gap-4 print:gap-2 md:after:bg-gradient-to-t md:after:absolute md:after:bottom-0 md:after:w-full print:after:hidden md:after:h-12 md:after:content-['']" :class="expanded ? 'after:hidden' : ''" x-show="expanded" x-collapse.min.50px>
                 {responsibilities && (
-                  <div class="flex flex-col gap-1">
-                    <h4>Responsibilities:</h4>
+                  <div class="flex flex-col gap-1 no-print">
+                    <h4>{t(currentLang, "responsibilities")}:</h4>
                     <ul class="text-skin-muted [&>li]:ml-4 flex list-disc flex-col gap-2">
                       {responsibilities.map(responsibility => (
                         <li>{responsibility}</li>
@@ -102,12 +126,12 @@ const SKILLS_ICONS: Record<string, any> = {
                   </div>
                 )}
 
-                {achievements && (
+                {highlights && (
                   <div class="flex flex-col gap-1">
-                    <h4>Achievements:</h4>
+                    <h4 class="no-print">{t(currentLang, "highlights")}:</h4>
                     <ul class="text-skin-muted [&>li]:ml-4 flex list-disc flex-col gap-2">
-                      {achievements.map(achievement => (
-                        <li>{achievement}</li>
+                      {highlights.map(highlight => (
+                        <li>{highlight}</li>
                       ))}
                     </ul>
                   </div>
@@ -115,18 +139,28 @@ const SKILLS_ICONS: Record<string, any> = {
                 </div>
                 
                 <button @click="expanded = ! expanded" class="print:hidden group/more w-fit cursor-pointer items-center justify-center gap-1.5 text-xs underline text-skin-muted transition-all hover:text-skin-base flex">
-                  <span x-text="expanded ? 'Show less' : 'Show more'">Show more</span>
+                  <span x-text={`expanded ? '${t(currentLang, "showLess")}' : '${t(currentLang, "showMore")}'`}>Show more</span>
                   <svg class="w-4 h-4 group-hover/more:translate-y-0.5 duration-200 ease-out" :class="{ 'rotate-180': expanded }" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
 
 
-                <ul class="flex print:hidden flex-wrap gap-2" aria-label="Technologies used">
+                <ul class="flex print:hidden flex-wrap gap-2 [&>li>img]:size-4" aria-label="Technologies used">
                   {skills && skills.map(skill => {
-                    const iconName = skill === "Next.js" ? "Next" : skill
-                    const Icon = SKILLS_ICONS[iconName]
+                    const iconName = skill === "C#" ? "CSharp" : skill;
+                    const remoteSlug = REMOTE_BRAND_SLUG[iconName];
+                    const LocalIcon = LOCAL_ICONS[iconName];
+                    const skillLevel = getSkillLevel(skill, currentLang);
+                    
                     return (
-                      <li class="bg-skin-button-accent/20 border-skin-hue/20 text-skin-hue print:p-0 print:bg-transparent print:text-zinc-800 flex gap-1 items-center border-solid print:border-none border rounded-md px-2 py-0.5 text-xs">
-                        {Icon && <Icon />} <span>{skill}</span>
+                      <li class={`skill-item bg-skin-button-accent/20 border-skin-hue/20 text-skin-hue print:p-0 print:bg-transparent print:text-zinc-800 flex gap-1 items-center border-solid print:border-none border rounded-md px-2 py-0.5 text-xs`} data-level={skillLevel}>
+                        {remoteSlug ? (
+                          <img src={`https://cdn.simpleicons.org/${remoteSlug}`} alt={skill} loading="lazy" />
+                        ) : LocalIcon ? (
+                          <LocalIcon />
+                        ) : (<span></span>)} <span>{skill}</span>
+                        <div class="skill-tooltip">
+                          <span class="tooltip-text">{getLevelDisplay(skillLevel, currentLang)}</span>
+                        </div>
                       </li>
                     )
                   })}
@@ -146,5 +180,59 @@ const SKILLS_ICONS: Record<string, any> = {
 <style>
   li::marker {
     @apply text-skin-hue
+  }
+
+  /* Skill tooltip styles */
+  .skill-item {
+    position: relative;
+    cursor: help;
+  }
+
+  .skill-tooltip {
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    pointer-events: none;
+  }
+
+  .skill-item:hover .skill-tooltip {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .tooltip-text {
+    background-color: rgb(var(--color-text-base));
+    color: rgb(var(--color-fill));
+    text-align: center;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgb(var(--color-text-base)) transparent transparent transparent;
+  }
+
+
+
+  /* Hide tooltips on print */
+  @media print {
+    .skill-tooltip {
+      display: none;
+    }
   }
 </style>

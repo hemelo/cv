@@ -1,0 +1,76 @@
+---
+import Language from "@/icons/Language.astro";
+
+const currentLang = Astro.url.pathname.startsWith("/pt-br") ? "pt-br" : "en";
+const isEnglish = currentLang === "en";
+---
+
+<div class="no-print inline-flex items-center">
+  <div class="group/language flex items-center gap-2 cursor-pointer">
+    <label
+      for="languageSwitch"
+      class="flex items-center gap-1 text-sm font-medium leading-6 text-skin-base cursor-pointer"
+    >
+      <Language className="transition-transform ease-in-out group-hover/language:rotate-12" />
+    </label>
+    <select
+      id="languageSwitch"
+      name="languageSwitch"
+      class="block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-skin-base ring-1 ring-inset ring-skin-muted focus:ring-2 focus:ring-skin-hue sm:text-sm sm:leading-6"
+    >
+      <option value="en" selected={isEnglish}>English</option>
+      <option value="pt-br" selected={!isEnglish}>Português</option>
+    </select>
+  </div>
+
+  <script>
+    const select = document.getElementById(
+      "languageSwitch",
+    ) as HTMLSelectElement;
+
+    function updateLanguage(value: string) {
+      const currentPath = window.location.pathname;
+      const currentLang = currentPath.startsWith("/pt-br") ? "pt-br" : "en";
+
+      if (value === currentLang) return;
+
+      let newPath = currentPath;
+
+      if (value === "pt-br") {
+        // Switch to Portuguese
+        if (currentLang === "en") {
+          // If we're at root, go to /pt-br, otherwise add /pt-br prefix
+          newPath = currentPath === "/" ? "/pt-br" : "/pt-br" + currentPath;
+        }
+      } else {
+        // Switch to English
+        if (currentLang === "pt-br") {
+          // Remove /pt-br prefix and handle root case
+          if (currentPath === "/pt-br") {
+            newPath = "/";
+          } else {
+            newPath = currentPath.replace("/pt-br", "");
+          }
+        }
+      }
+
+      // Ensure we don't have double slashes
+      newPath = newPath.replace(/\/+/g, "/");
+
+      // Handle edge cases
+      if (newPath === "") {
+        newPath = "/";
+      }
+
+      console.log(
+        `Switching from ${currentLang} to ${value}: ${currentPath} -> ${newPath}`,
+      );
+      window.location.href = newPath;
+    }
+
+    select.addEventListener("change", (event: Event) => {
+      const select = event.target as HTMLSelectElement;
+      updateLanguage(select.value);
+    });
+  </script>
+</div>

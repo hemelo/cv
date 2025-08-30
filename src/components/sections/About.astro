@@ -1,12 +1,15 @@
 ---
 import Section from "../Section.astro";
+import { getBasics } from "@/utils/cv";
+import { t } from "@/utils/translations";
 
-import { basics } from "@cv";
+const currentLang = Astro.url.pathname.startsWith("/pt-br") ? "pt-br" : "en";
+const basics = getBasics(currentLang);
 const { summary } = basics;
 ---
 
-<Section title="About">
-	<p>
-		{summary}
-	</p>
+<Section title={t(currentLang, "about")}>
+  <p class="print:text-xs">
+    {summary}
+  </p>
 </Section>

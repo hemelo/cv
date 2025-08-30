@@ -1,0 +1,363 @@
+{
+  "basics": {
+    "name": "Henrique Melo",
+    "label": "Engenheiro de Software",
+    "image": "/me_avatar.jpg",
+    "email": "hemelo@pm.me",
+    "phone": "+55 31 98686-9137",
+    "url": "https://johndoe.dev",
+    "summary": "Engenheiro de Software orientado a resultados com histórico comprovado de entrega de soluções de alta qualidade que geram valor para o negócio. Com fortes habilidades em traduzir requisitos complexos em aplicações eficientes e escaláveis que superam as expectativas.",
+    "theme": "blue",
+    "location": {
+      "address": "",
+      "postalCode": "",
+      "city": "Contagem",
+      "countryCode": "BR",
+      "region": "Minas Gerais"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "henriquefcmelo",
+        "url": "https://linkedin.com/in/henriquefcmelo"
+      },
+      {
+        "network": "X",
+        "username": "hemelodev",
+        "url": "https://x.com/hemelodev"
+      },
+      {
+        "network": "GitHub",
+        "username": "hemelo",
+        "url": "https://github.com/hemelo"
+      },
+      {
+        "network": "Medium",
+        "username": "hemelo",
+        "url": "https://medium.com/@hemelo"
+      },
+      {
+        "network": "Portfolio",
+        "username": "hemelo",
+        "url": "https://johndoe.dev"
+      },
+      {
+        "network": "Blog",
+        "username": "hemelo",
+        "url": "https://blog.johndoe.dev"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Alterosa MK",
+      "position": "Desenvolvedor Fullstack Pleno",
+      "location_type": "Presencial",
+      "location": "Contagem, Brasil",
+      "url": "",
+      "startDate": "2022-06-01",
+      "endDate": null,
+      "summary": "Liderando o desenvolvimento e manutenção de sistemas críticos de negócio, focando em arquitetura de microsserviços, otimização de performance e implementação de pipelines CI/CD. Entregando valor mensurável para o negócio através de soluções técnicas que reduzem custos operacionais e melhoram prazos de entrega.",
+      "responsibilities": [
+        "Liderar o design arquitetural e implementação de sistemas críticos de negócio, incluindo arquitetura de microsserviços, otimização de performance e práticas modernas de desenvolvimento para gerar valor mensurável para o negócio",
+        "Desenvolver e manter aplicações empresariais usando Java, Spring Boot, .NET e Angular, implementando pipelines CI/CD com Jenkins, Docker e SonarQube para garantia de qualidade",
+        "Mentorar desenvolvedores através de code reviews, pair programming e orientação técnica, garantindo aderência aos princípios de Clean Code e melhores práticas para soluções escaláveis"
+      ],
+      "highlights": [
+        "Liderou redesign completo de sistema legado instável de processamento de arquivos, implementando microsserviços com RabbitMQ e containerização Docker. Alcançou 100% de automação com 30% de redução de custos e 100% de confiabilidade dos dados",
+        "Diagnosticou e otimizou sistemas legados críticos causando gargalos de produção, implementando profiling de banco de dados, reestruturação SQL e refatoração de código Java. Reduziu tempo de loading em 40% e melhorou significativamente o nível de satisfação dos usuários",
+        "Projetou e implementou pipeline automatizado de CI/CD do zero usando Jenkins, ferramentas Maven/NUKE, integração SonarQube e containerização Docker. Alcançou 70% de entrega mais rápida de funcionalidades com zero erros de deploy",
+        "Implementou tolerância robusta a falhas para quedas de workers e serviços, usando checkpoints de banco de dados, retries do RabbitMQ e controles de idempotência. Alcançou 100% de resiliência do sistema com zero perda de dados",
+        "Garantiu consistência de dados entre múltiplos serviços processando arquivos através da implementação do Outbox Pattern, controles de idempotência e logging de auditoria centralizado. Manteve estado consistente de dados com zero divergências"
+      ],
+      "skills": [
+        "Java",
+        "Spring Boot",
+        "JSF",
+        "JSP",
+        "Angular",
+        "C#",
+        ".NET",
+        "ASP.NET",
+        "C++",
+        "RabbitMQ",
+        "Docker",
+        "Jenkins",
+        "SonarQube",
+        "MySQL",
+        "PostgreSQL",
+        "Git",
+        "SVN",
+        "CI/CD",
+        "Microsserviços",
+        "Design Patterns",
+        "Clean Code",
+        "Otimização de Performance",
+        "Otimização de Banco de Dados",
+        "Arquitetura de Sistemas"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "FIAP - Faculdade de Informática e Administração Paulista",
+      "url": "https://fiap.com.br",
+      "area": "Engenharia de Software",
+      "studyType": "Bacharelado",
+      "startDate": "2018-09-01",
+      "endDate": "2022-05-01",
+      "score": "3.8",
+      "courses": [
+        "CS101 - Introdução à Ciência da Computação",
+        "CS102 - Estruturas de Dados"
+      ]
+    },
+    {
+      "institution": "UFMG - Universidade Federal de Minas Gerais",
+      "url": "https://ufmg.br",
+      "area": "Desenvolvimento de Software",
+      "studyType": "Tecnólogo",
+      "startDate": "2020-09-01",
+      "endDate": "2022-12-01",
+      "score": "3.9",
+      "courses": [
+        "SE201 - Desenvolvimento de Software Avançado",
+        "SE202 - Arquitetura e Design de Software"
+      ]
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Desenvolvimento Seguro",
+      "date": "2024-03-01",
+      "issuer": "Data Security",
+      "url": "https://cursos.datasecurity.com.br/desenvolvimento-seguro/"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Java",
+      "level": 5,
+      "keywords": [
+        "Desenvolvimento Backend",
+        "Microsserviços",
+        "Aplicações Empresariais"
+      ]
+    },
+    {
+      "name": "Spring Boot",
+      "level": 5,
+      "keywords": [
+        "Microsserviços",
+        "APIs REST",
+        "Injeção de Dependência",
+        "Desenvolvimento Empresarial"
+      ]
+    },
+    {
+      "name": "C#",
+      "level": 5,
+      "keywords": [
+        "Desenvolvimento Backend",
+        "Aplicações Empresariais",
+        "Desenvolvimento Windows"
+      ]
+    },
+    {
+      "name": ".NET",
+      "level": 5,
+      "keywords": [
+        "Desenvolvimento Empresarial",
+        "Ecossistema Microsoft"
+      ]
+    },
+    {
+      "name": "Angular",
+      "level": 5,
+      "keywords": [
+        "Framework Frontend",
+        "Aplicações de Página Única",
+        "Arquitetura Baseada em Componentes"
+      ]
+    },
+    {
+      "name": "RabbitMQ",
+      "level": 5,
+      "keywords": [
+        "Message Broker",
+        "Comunicação Assíncrona",
+        "Microsserviços",
+        "Arquitetura Orientada a Eventos"
+      ]
+    },
+    {
+      "name": "Docker",
+      "level": 5,
+      "keywords": [
+        "Containerização",
+        "DevOps",
+        "CI/CD",
+        "Padronização de Ambientes"
+      ]
+    },
+    {
+      "name": "Jenkins",
+      "level": 5,
+      "keywords": ["CI/CD", "Automação", "Pipeline de Build", "DevOps"]
+    },
+    {
+      "name": "SonarQube",
+      "level": 5,
+      "keywords": [
+        "Qualidade de Código",
+        "Análise Estática",
+        "Code Review",
+        "Garantia de Qualidade"
+      ]
+    },
+    {
+      "name": "MySQL",
+      "level": 5,
+      "keywords": [
+        "Bancos de Dados",
+        "SQL",
+        "Armazenamento de Dados",
+        "Backend"
+      ]
+    },
+    {
+      "name": "PostgreSQL",
+      "level": 5,
+      "keywords": [
+        "Bancos de Dados",
+        "SQL",
+        "Armazenamento de Dados",
+        "Backend"
+      ]
+    },
+    {
+      "name": "Git",
+      "level": 5,
+      "keywords": [
+        "Controle de Versão",
+        "Colaboração",
+        "Código Fonte",
+        "DevOps"
+      ]
+    },
+    {
+      "name": "C++",
+      "level": 3,
+      "keywords": [
+        "Programação de Sistemas",
+        "Performance",
+        "Desenvolvimento de Baixo Nível"
+      ]
+    },
+    {
+      "name": "Microsserviços",
+      "level": 5,
+      "keywords": [
+        "Arquitetura",
+        "Sistemas Distribuídos",
+        "Escalabilidade",
+        "Orientado a Serviços"
+      ]
+    },
+    {
+      "name": "Arquitetura de Sistemas",
+      "level": 5,
+      "keywords": [
+        "Design Patterns",
+        "Soluções Escaláveis",
+        "Otimização de Performance",
+        "Arquitetura Empresarial"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "Português",
+      "fluency": "Falante nativo"
+    },
+    {
+      "language": "Inglês",
+      "fluency": "Avançado"
+    }
+  ],
+  "interests": [
+    {
+      "name": "IA e Agentes",
+      "keywords": [
+        "IA",
+        "Aprendizado de Máquina",
+        "Deep Learning",
+        "LLMs",
+        "RAG",
+        "MCP",
+        "Agentes",
+        "Bancos de Vetores",
+        "Engenharia de Prompt",
+        "Fine-tuning",
+        "Aprendizado por Reforço",
+        "MLOps",
+        "LangChain",
+        "OpenAI API",
+        "PLN",
+        "Visão Computacional",
+        "Voz/Áudio",
+        "Serviço de Modelos",
+        "ONNX",
+        "TensorFlow",
+        "PyTorch",
+        "CUDA",
+        "Transformers",
+        "Redes Neurais",
+        "AutoML"
+      ]
+    },
+    {
+      "name": "Dados",
+      "keywords": [
+        "Engenharia de Dados",
+        "Pipelines de Dados",
+        "Feature Stores"
+      ]
+    },
+    {
+      "name": "Backend e Sistemas",
+      "keywords": [
+        "Sistemas Distribuídos",
+        "Programação de Baixo Nível",
+        "Programação de Kernel",
+        "Blockchain"
+      ]
+    },
+    {
+      "name": "Apple",
+      "keywords": [
+        "Swift",
+        "SwiftUI",
+        "Xcode"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Portfólio Pessoal",
+      "isActive": true,
+      "description": "Um site de portfólio pessoal para mostrar meus projetos e habilidades, construído com tecnologias web modernas.",
+      "highlights": [
+        "Construído com Astro, Tailwind CSS e TypeScript",
+        "Suporte a internacionalização (Inglês e Português)",
+        "Design responsivo com UI/UX moderno",
+        "Layout adequado para impressão para exportação de CV"
+      ],
+      "url": "https://johndoe.dev",
+      "github": "https://github.com/hemelo/cv"
+    }
+  ],
+  "footer": {
+    "url": "https://twitter.com/hemelodev?utm_source=portfolio_astro"
+  }
+}

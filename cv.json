@@ -1,127 +1,108 @@
 {
   "basics": {
-    "name": "John Doe",
-    "label": "Junior Full Stack Developer",
+    "name": "Henrique Melo",
+    "label": "Software Engineer",
     "image": "/me_avatar.jpg",
-    "email": "john.doe@example.com",
-    "phone": "+1 555-555-5555",
+    "email": "hemelo@pm.me",
+    "phone": "+55 31 98686-9137",
     "url": "https://johndoe.dev",
-    "summary": "Junior Full Stack Developer with a passion for building web applications. Currently seeking opportunities to further develop my skills in a professional setting.",
-    "theme": "default",
+    "summary": "Results-driven Software Engineer with a proven track record of delivering high-quality solutions that drive business value. With strong skills at translating complex requirements into efficient, scalable applications that exceed expectations.",
+    "theme": "blue",
     "location": {
       "address": "",
-      "postalCode": "10001",
-      "city": "Auckland",
-      "countryCode": "NZ",
-      "region": "New Zealand"
+      "postalCode": "",
+      "city": "Contagem",
+      "countryCode": "BR",
+      "region": "Minas Gerais"
     },
     "profiles": [
       {
         "network": "LinkedIn",
-        "username": "john-doe",
-        "url": "https://linkedin.com/in/john-doe"
+        "username": "henriquefcmelo",
+        "url": "https://linkedin.com/in/henriquefcmelo"
       },
       {
         "network": "X",
-        "username": "john-doe",
-        "url": "https://x.com/john-doe"
+        "username": "hemelodev",
+        "url": "https://x.com/hemelodev"
       },
       {
         "network": "GitHub",
-        "username": "johndoe",
-        "url": "https://github.com/johndoe"
+        "username": "hemelo",
+        "url": "https://github.com/hemelo"
+      },
+      {
+        "network": "Medium",
+        "username": "hemelo",
+        "url": "https://medium.com/@hemelo"
+      },
+      {
+        "network": "Portfolio",
+        "username": "hemelo",
+        "url": "https://johndoe.dev"
+      },
+      {
+        "network": "Blog",
+        "username": "hemelo",
+        "url": "https://blog.johndoe.dev"
       }
     ]
   },
   "work": [
     {
-      "name": "Tech Startup",
-      "position": "Junior Web Developer",
+      "name": "Alterosa MK",
+      "position": "Mid-Level Software Developer",
       "location_type": "On site",
-      "location": "Auckland, New Zealand",
-      "url": "https://techstartup.com",
-      "startDate": "2024-01-01",
+      "location": "Contagem, Brazil",
+      "url": "",
+      "startDate": "2022-06-01",
       "endDate": null,
-      "summary": "Developing and maintaining web applications using JavaScript, HTML, and CSS. Collaborating with the team to implement new features and fix bugs.",
-      "highlights": [
-        "Improved website performance by optimizing code"
-      ],
+      "summary": "Leading the development and maintenance of critical business systems, focusing on microservices architecture, performance optimization, and implementing CI/CD pipelines. Delivering measurable business value through technical solutions that reduce operational costs and improve delivery times.",
       "responsibilities": [
-        "Collaborated with senior developers to design and implement web applications using modern JavaScript frameworks.",
-        "Assisted in debugging and optimizing front-end code to ensure smooth user experiences.",
-        "Participated in code reviews and contributed to improving coding standards within the team."
+        "Lead architectural design and implementation of critical business systems, including microservices architecture, performance optimization, and modern development practices to drive measurable business value",
+        "Develop and maintain enterprise applications using Java, Spring Boot, .NET, and Angular, while implementing CI/CD pipelines with Jenkins, Docker, and SonarQube for quality assurance",
+        "Mentor developers through code reviews, pair programming, and technical guidance, ensuring adherence to Clean Code principles and best practices for scalable solutions"
       ],
-      "achievements": [
-        "Developing and maintaining web applications using JavaScript, HTML, and CSS. Collaborating with the team to implement new features and fix bugs."
+      "highlights": [
+        "Led complete redesign of unstable legacy file processing system, implementing microservices with RabbitMQ and Docker containerization. Achieved 100% automation with 30% cost reduction and 100% data reliability",
+        "Diagnosed and optimized critical legacy systems causing production bottlenecks, implementing database profiling, SQL restructuring, and Java code refactoring. Reduced delivery time by 40% and significantly increased user satisfaction",
+        "Designed and implemented automated CI/CD pipeline from scratch using Jenkins, Maven/NUKE tools, SonarQube integration, and Docker containerization. Achieved 70% faster feature delivery with zero deployment errors",
+        "Implemented robust fault tolerance for worker failures and service outages, using database checkpoints, RabbitMQ retries, and idempotency controls. Achieved 100% system resilience with zero data loss",
+        "Ensured data consistency across multiple services processing files by implementing Outbox Pattern, idempotency controls, and centralized audit logging. Maintained consistent data state with zero divergences"
       ],
       "skills": [
-        "React",
-        "Tailwind",
-        "GitHub"
-      ]
-    },
-    {
-      "name": "Innovative Solutions",
-      "position": "Junior Software Developer",
-      "location_type": "Hybrid",
-      "location": "Wellington, New Zealand",
-      "url": "https://innovativesolutions.com",
-      "startDate": "2022-06-01",
-      "endDate": "2023-06-01",
-      "summary": "Assisting in the development and maintenance of software applications using Python and Django. Collaborating with cross-functional teams to ensure quality and timely delivery of software solutions.",
-      "highlights": [
-        "Contributed to a major project that streamlined internal workflows, improving efficiency by 30%"
-      ],
-      "responsibilities": [
-        "Developed and maintained backend services using Python and Django.",
-        "Worked closely with front-end developers to integrate user-facing elements with server-side logic.",
-        "Participated in daily stand-ups and bi-weekly sprint planning meetings to ensure alignment with project goals."
-      ],
-      "achievements": [
-        "Successfully implemented a feature that enhanced user authentication, improving security measures."
-      ],
-      "skills": [
-        "Python",
-        "Django",
-        "SQL",
-        "Git"
-      ]
-    },
-    {
-      "name": "Web Agency",
-      "position": "Intern Web Developer",
-      "location_type": "Remote",
-      "location": "Sydney, Australia",
-      "startDate": "2022-06-01",
-      "endDate": "2022-12-01",
-      "summary": "Assisted in developing client websites and applications. Gained hands-on experience with front-end and back-end technologies.",
-      "highlights": [
-        "Completed several client projects successfully"
-      ],
-      "skills": [
-        "HTML",
-        "CSS"
-      ]
-    }
-  ],
-  "volunteer": [
-    {
-      "organization": "Local Coding Club",
-      "position": "Volunteer",
-      "url": "https://codingclub.com/",
-      "startDate": "2021-01-01",
-      "endDate": "2022-01-01",
-      "summary": "Helped organize coding workshops and mentored new members.",
-      "highlights": [
-        "Awarded 'Volunteer of the Month'"
+        "Java",
+        "Spring Boot",
+        "JSF",
+        "JSP",
+        "Angular",
+        "C#",
+        ".NET",
+        "ASP.NET",
+        "C++",
+        "RabbitMQ",
+        "Docker",
+        "Jenkins",
+        "SonarQube",
+        "MySQL",
+        "PostgreSQL",
+        "Git",
+        "SVN",
+        "CI/CD",
+        "Microservices",
+        "Design Patterns",
+        "Clean Code",
+        "Performance Optimization",
+        "Database Optimization",
+        "System Architecture"
       ]
     }
   ],
   "education": [
     {
-      "institution": "State University",
-      "url": "https://stateuniversity.edu",
-      "area": "Computer Science",
+      "institution": "FIAP - Faculdade de Informática e Administração Paulista",
+      "url": "https://fiap.com.br",
+      "area": "Software Engineering",
       "studyType": "Bachelor",
       "startDate": "2018-09-01",
       "endDate": "2022-05-01",
@@ -132,10 +113,10 @@
       ]
     },
     {
-      "institution": "Tech Institute",
-      "url": "https://techinstitute.edu",
-      "area": "Software Engineering",
-      "studyType": "Master",
+      "institution": "UFMG - Universidade Federal de Minas Gerais",
+      "url": "https://ufmg.br",
+      "area": "Software Development",
+      "studyType": "Associate Degree",
       "startDate": "2020-09-01",
       "endDate": "2022-12-01",
       "score": "3.9",
@@ -143,222 +124,222 @@
         "SE201 - Advanced Software Development",
         "SE202 - Software Architecture and Design"
       ]
-    },
-    {
-      "institution": "City College",
-      "url": "https://citycollege.edu",
-      "area": "Information Technology",
-      "studyType": "Associate Degree",
-      "startDate": "2017-01-01",
-      "endDate": "2019-12-01",
-      "score": "3.7",
-      "courses": [
-        "IT101 - Networking Fundamentals",
-        "IT102 - Database Management Systems"
-      ]
     }
   ],
   "certificates": [
     {
-      "name": "Full Stack Web Development",
-      "date": "2023-05-01",
-      "issuer": "Online University",
-      "url": "https://onlineuniversity.com/certificates/fullstack"
+      "name": "Secure Development",
+      "date": "2024-03-01",
+      "issuer": "Data Security",
+      "url": "https://cursos.datasecurity.com.br/desenvolvimento-seguro/"
     }
   ],
   "skills": [
     {
-      "name": "Figma",
-      "level": "Expert",
+      "name": "Java",
+      "level": 5,
       "keywords": [
-        "Design",
-        "UI"
+        "Backend Development",
+        "Microservices",
+        "Enterprise Applications"
       ]
     },
     {
-      "name": "Gitlab",
-      "level": "Intermediate",
+      "name": "Spring Boot",
+      "level": 5,
       "keywords": [
-        "Version Control",
-        "Collaboration",
-        "Source Code"
+        "Java Framework",
+        "Microservices",
+        "REST APIs",
+        "Dependency Injection",
+        "Enterprise Development"
       ]
     },
     {
-      "name": "HTML",
-      "level": "Intermediate",
+      "name": "C#",
+      "level": 5,
       "keywords": [
-        "Web Development",
-        "Frontend"
+        "Backend Development",
+        "Enterprise Applications",
+        "Windows Development"
       ]
     },
     {
-      "name": "CSS",
-      "level": "Intermediate",
+      "name": ".NET",
+      "level": 5,
       "keywords": [
-        "Web Development",
-        "Frontend",
-        "Responsive Design"
+        "Enterprise Development",
+        "Microsoft Ecosystem"
       ]
     },
     {
-      "name": "JavaScript",
-      "level": "Intermediate",
+      "name": "Angular",
+      "level": 5,
       "keywords": [
-        "Web Development",
-        "Frontend",
-        "Backend",
-        "Fullstack"
+        "Frontend Framework",
+        "Single Page Applications",
+        "Component-Based Architecture"
       ]
     },
     {
-      "name": "Tailwind",
-      "level": "Intermediate",
+      "name": "RabbitMQ",
+      "level": 5,
       "keywords": [
-        "Web Development",
-        "Frontend",
-        "CSS Framework",
-        "Responsive Design"
+        "Message Broker",
+        "Asynchronous Communication",
+        "Microservices",
+        "Event-Driven Architecture"
       ]
     },
     {
-      "name": "TypeScript",
-      "level": "Intermediate",
+      "name": "Docker",
+      "level": 5,
       "keywords": [
-        "Web Development",
-        "Frontend",
-        "Backend",
-        "JavaScript Superset"
+        "Containerization",
+        "DevOps",
+        "CI/CD",
+        "Environment Standardization"
       ]
     },
     {
-      "name": "Node",
-      "level": "Intermediate",
+      "name": "Jenkins",
+      "level": 5,
+      "keywords": ["CI/CD", "Automation", "Build Pipeline", "DevOps"]
+    },
+    {
+      "name": "SonarQube",
+      "level": 5,
       "keywords": [
-        "Web Development",
-        "Backend",
-        "JavaScript",
-        "Server"
+        "Code Quality",
+        "Static Analysis",
+        "Code Review",
+        "Quality Assurance"
       ]
     },
     {
       "name": "MySQL",
-      "level": "Intermediate",
-      "keywords": [
-        "Databases",
-        "SQL",
-        "Data Storage",
-        "Backend"
-      ]
+      "level": 5,
+      "keywords": ["Databases", "SQL", "Data Storage", "Backend"]
+    },
+    {
+      "name": "PostgreSQL",
+      "level": 5,
+      "keywords": ["Databases", "SQL", "Data Storage", "Backend"]
     },
     {
       "name": "Git",
-      "level": "Intermediate",
+      "level": 5,
+      "keywords": ["Version Control", "Collaboration", "Source Code", "DevOps"]
+    },
+    {
+      "name": "C++",
+      "level": 3,
+      "keywords": ["System Programming", "Performance", "Low-Level Development"]
+    },
+    {
+      "name": "Microservices",
+      "level": 5,
       "keywords": [
-        "Version Control",
-        "Collaboration",
-        "Source Code"
+        "Architecture",
+        "Distributed Systems",
+        "Scalability",
+        "Service-Oriented"
       ]
     },
     {
-      "name": "GitHub",
-      "level": "Intermediate",
+      "name": "System Architecture",
+      "level": 5,
       "keywords": [
-        "Version Control",
-        "Collaboration",
-        "Source Code",
-        "Git"
-      ]
-    },
-    {
-      "name": "Next.js",
-      "level": "Beginner",
-      "keywords": [
-        "Web Development",
-        "Frontend",
-        "React Framework",
-        "SSR",
-        "Static Generation"
-      ]
-    },
-    {
-      "name": "React",
-      "level": "Intermediate",
-      "keywords": [
-        "Web Development",
-        "Frontend",
-        "JavaScript Library",
-        "UI"
+        "Design Patterns",
+        "Scalable Solutions",
+        "Performance Optimization",
+        "Enterprise Architecture"
       ]
     }
   ],
   "languages": [
     {
       "language": "English",
-      "fluency": "Native speaker"
+      "fluency": "Advanced"
     },
     {
-      "language": "Spanish",
-      "fluency": "Intermediate"
+      "language": "Portuguese",
+      "fluency": "Native speaker"
     }
   ],
   "interests": [
     {
-      "name": "Technology",
+      "name": "AI & Agents",
       "keywords": [
         "AI",
+        "Machine Learning",
+        "Deep Learning",
+        "LLMs",
+        "RAG",
+        "MCP",
+        "Agents",
+        "Vector Databases",
+        "Prompt Engineering",
+        "Fine-tuning",
+        "Reinforcement Learning",
+        "MLOps",
+        "LangChain",
+        "OpenAI API",
+        "NLP",
+        "Computer Vision",
+        "Speech AI",
+        "Model Serving",
+        "ONNX",
+        "TensorFlow",
+        "PyTorch",
+        "CUDA",
+        "Transformers",
+        "Graph Neural",
+        "AutoML"
+      ]
+    },
+    {
+      "name": "Data",
+      "keywords": [
+        "Data Engineering",
+        "Data Pipelines",
+        "Feature Stores"
+      ]
+    },
+    {
+      "name": "Backend & Systems",
+      "keywords": [
+        "Distributed Systems",
+        "Low-Level Programming",
+        "Kernel Programming",
         "Blockchain"
       ]
-    }
-  ],
-  "references": [
+    },
     {
-      "name": "Jane Smith",
-      "reference": "Reference…"
+      "name": "Apple",
+      "keywords": [
+        "Swift",
+        "SwiftUI",
+        "Xcode"
+      ]
     }
   ],
   "projects": [
     {
       "name": "Personal Portfolio",
-      "isActive": false,
-      "description": "A personal portfolio website to showcase my projects and skills.",
+      "isActive": true,
+      "description": "A personal portfolio website to showcase my projects and skills, built with modern web technologies.",
       "highlights": [
-        "Built with React and Tailwind CSS",
-        "Includes a blog and contact form"
+        "Built with Astro, Tailwind CSS, and TypeScript",
+        "Internationalization support (English and Portuguese)",
+        "Responsive design with modern UI/UX",
+        "Print-friendly layout for CV export"
       ],
       "url": "https://johndoe.dev",
-      "github": "https://github.com"
-    },
-    {
-      "name": "Weather App",
-      "isActive": true,
-      "description": "A web application that provides weather information for any location.",
-      "highlights": [
-        "Built with JavaScript and OpenWeatherMap API",
-        "Responsive design"
-      ],
-      "url": "https://weatherapp.com"
-    },
-    {
-      "name": "Task Manager",
-      "isActive": true,
-      "description": "A simple task management app to keep track of daily tasks.",
-      "highlights": [
-        "Built with Node.js and MongoDB",
-        "User authentication and CRUD operations"
-      ],
-      "url": "https://taskmanager.com",
-      "github": "https://github.com"
-    },
-    {
-      "name": "E-commerce Site",
-      "isActive": false,
-      "description": "An online store built with Next.js and Stripe for payment processing.",
-      "highlights": [
-        "Product management and shopping cart functionality",
-        "Secure payment integration"
-      ],
-      "url": "https://ecommerce.com"
+      "github": "https://github.com/hemelo/cv"
     }
-  ]
+  ],
+  "footer": {
+    "url": "https://twitter.com/hemelodev?utm_source=portfolio_astro"
+  }
 }

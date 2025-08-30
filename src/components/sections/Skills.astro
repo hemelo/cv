@@ -1,58 +1,341 @@
 ---
 import Section from "../Section.astro";
-import HTML from "@/icons/html.astro";
-import CSS from "@/icons/css.astro";
-import JavaScript from "@/icons/javascript.astro";
-import TypeScript from "@/icons/type.astro";
-import React from "@/icons/react.astro";
-import Node from "@/icons/node.astro";
-import MySQL from "@/icons/sql.astro";
-import Git from "@/icons/git.astro";
-import GitHub from "@/icons/GitHub.astro";
-import Tailwind from "@/icons/tailwind.astro";
-import Next from "@/icons/next.astro";
-import { skills } from "@cv";
-import Swift from "@/icons/swift.astro";
-import SwiftUI from "@/icons/swiftui.astro";
-import Kotlin from "@/icons/kotlin.astro";
-import Flutter from "@/icons/flutter.astro";
-import Figma from "@/icons/Figma.astro";
-import Gitlab from "@/icons/Gitlab.astro";
+import { getSkills } from "@/utils/cv";
+import { t } from "@/utils/translations";
+import SonarQube from "@/icons/SonarQube.astro";
+import Java from "@/icons/Java.astro";
+import CSharp from "@/icons/CSharp.astro";
+import Info from "@/icons/Info.astro";
 
-const SKILLS_ICONS: Record<string, any> = {
-	HTML,
-	CSS,
-	JavaScript,
-	TypeScript,
-	React,
-	Node,
-	MySQL,
-	Git,
-	GitHub,
-	Next,
-	Tailwind,
-	Swift,
-	SwiftUI,
-	Kotlin,
-	Flutter,
-	Figma,
-	Gitlab,
+const currentLang = Astro.url.pathname.startsWith("/pt-br") ? "pt-br" : "en";
+
+// Skill level mapping for display
+const getLevelDisplay = (level: number, lang: string) => {
+  const levelKey = `skillLevel${level}`;
+  return t(lang, levelKey);
+};
+
+const skills = getSkills(currentLang).sort((a, b) => b.level - a.level); // Descending order (5 to 1)
+
+// Prefer official brand icons from Simple Icons CDN when available
+// for accurate logos; fall back to local SVGs otherwise.
+
+const REMOTE_BRAND_SLUG: Record<string, string> = {
+  "Spring Boot": "springboot",
+  Angular: "angular",
+  ".NET": "dotnet",
+  "C++": "cplusplus",
+  RabbitMQ: "rabbitmq",
+  Docker: "docker",
+  Jenkins: "jenkins",
+  MySQL: "mysql",
+  PostgreSQL: "postgresql",
+  "ASP.NET": "dotnet",
+};
+
+const LOCAL_ICONS: Record<string, any> = {
+  SonarQube,
+  Java,
+  CSharp,
 };
 ---
 
-<Section className={Astro.props.className} title="Skills">
-	<ul class="[&>li>svg]:text-skin-hue inline-flex flex-wrap gap-6 [&>li>svg]:size-5 [&>li]:text-sm">
-		{
-			skills.map(({ name }) => {
-				const iconName = name === "Next.js" ? "Next" : name;
-				const Icon = SKILLS_ICONS[iconName];
+<Section className={Astro.props.className} title={t(currentLang, "skills")}>
+  <Fragment slot="title">
+    <span>{t(currentLang, "skills")}</span>
+    <div class="info-button-container">
+      <button 
+        class="info-button text-skin-muted"
+        title={t(currentLang, "skillsInfo")}
+        aria-label={t(currentLang, "skillsInfo")}
+      >
+        <Info className="info-icon" />
+      </button>
+      <div class="info-tooltip">
+        <div class="info-tooltip-content">
+          <h3 class="info-tooltip-title">{t(currentLang, "skillsInfo")}</h3>
+          <div class="info-tooltip-keywords">
+            {(() => {
+              const allKeywords = skills.flatMap(skill => skill.keywords || []);
+              const uniqueKeywords = [...new Set(allKeywords)];
+              return uniqueKeywords.map(keyword => (
+                <span class="keyword-tag">{keyword}</span>
+              ));
+            })()}
+          </div>
+        </div>
+      </div>
+    </div>
+  </Fragment>
+  <ul
+    class="inline-flex flex-wrap gap-6 [&>li>img]:size-5 [&>li>svg]:size-5 [&>li>svg]:text-skin-hue [&>li]:text-sm"
+  >
+    {
+      skills.map(({ name, level }) => {
+        const iconName =
+          name === "Next.js" ? "Next" : name == "C#" ? "CSharp" : name;
+        const remoteSlug = REMOTE_BRAND_SLUG[name];
+        const LocalIcon = LOCAL_ICONS[name];
 
-				return (
-					<li class="border-skin-hue/20s bg-skin-button-accent/20s borders border-solids flex items-center gap-1 rounded-md px-2 py-0.5 text-xs text-skin-muted print:border-none print:bg-transparent print:p-0 print:text-zinc-800">
-						{Icon && <Icon />} <span>{name}</span>
-					</li>
-				);
-			})
-		}
-	</ul>
+        const isAdvanced = level >= 5;
+        
+        return (
+          <li class={`skill-item border-skin-hue/20s bg-skin-button-accent/20s borders border-solids flex items-center gap-1 rounded-md px-2 py-0.5 text-xs text-skin-muted print:border-none print:bg-transparent print:p-0 print:text-zinc-800 ${isAdvanced ? 'shiny-sec' : ''}`} data-level={level}>
+            {remoteSlug ? (
+              <img
+                class="no-print"
+                src={`https://cdn.simpleicons.org/${remoteSlug}`}
+                alt={name}
+                loading="lazy"
+              />
+            ) : LocalIcon ? (
+              <LocalIcon class:list={["no-print"]} />
+            ) : (
+              <span />
+            )}{" "}
+            <span>{name}</span>
+            <div class="skill-tooltip">
+              <span class="tooltip-text">{getLevelDisplay(level, currentLang)}</span>
+            </div>
+          </li>
+        );
+      })
+    }
+  </ul>
+  
+  <!-- Print-only skills display -->
+  <div class="print-skills print:block hidden print:py-2">
+    <p class="print:text-xs print:leading-relaxed">
+      {skills.map(({ name }, index) => {
+        if (index === skills.length - 1) {
+          return <span>{name}.</span>;
+        } else if (index === skills.length - 2) {
+          return <span>{name} and </span>;
+        } else {
+          return <span>{name}, </span>;
+        }
+      })}
+    </p>
+  </div>
 </Section>
+
+<style>
+  .skill-item {
+    position: relative;
+    cursor: help;
+  }
+
+  .skill-tooltip {
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    pointer-events: none;
+  }
+
+  .skill-item:hover .skill-tooltip {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .tooltip-text {
+    background-color: rgb(var(--color-text-base));
+    color: rgb(var(--color-fill));
+    text-align: center;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgb(var(--color-text-base)) transparent transparent transparent;
+  }
+
+  @media print {
+    .skill-tooltip {
+      display: none;
+    }
+    
+    .shiny-sec {
+      background: none !important;
+      background-clip: unset !important;
+      -webkit-background-clip: unset !important;
+      color: rgb(var(--color-text-base)) !important;
+      animation: none !important;
+    }
+    
+    /* Hide the original skills list during print */
+    ul {
+      display: none !important;
+    }
+    
+    /* Style the print skills paragraph */
+    .print-skills p {
+      margin: 0;
+      color: rgb(var(--color-text-base));
+      text-wrap: pretty;
+    }
+
+    /* Hide info button and tooltip on print */
+    .info-button-container {
+      display: none !important;
+    }
+  }
+
+  /* Info button styles */
+  .info-button-container {
+    position: relative;
+  }
+
+  .info-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid rgb(var(--muted));
+    color: rgb(var(--color-text-muted));
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+  }
+
+  .info-button:hover {
+    background: rgba(var(--color-text-base), 0.06);
+  }
+
+  .info-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Info tooltip styles */
+  .info-tooltip {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 8px) scale(0.96);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1), opacity 220ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s;
+    will-change: transform, opacity;
+    z-index: 2000;
+    pointer-events: auto;
+    margin-top: 8px;
+    min-width: 900px;
+    max-width: 1200px;
+  }
+
+  .info-button-container:hover .info-tooltip,
+  .info-tooltip:hover {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0) scale(1);
+    transition-delay: 250ms, 250ms, 0s;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .info-tooltip {
+      transition: none;
+      transform: translate(-50%, 0) scale(1);
+    }
+    .info-button-container:hover .info-tooltip,
+    .info-tooltip:hover {
+      transition: none;
+    }
+  }
+
+  .info-tooltip-content {
+    background: rgb(var(--color-fill));
+    color: rgb(var(--color-text-base));
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgb(var(--muted));
+  }
+
+  .info-tooltip-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 12px 0;
+    color: rgb(var(--color-text-base));
+  }
+
+  .info-tooltip-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .keyword-tag {
+    background: rgb(var(--color-fill));
+    color: rgb(var(--color-text-base));
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+    border: 1px solid rgb(var(--muted));
+  }
+
+  .info-tooltip::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-bottom-color: rgb(var(--color-fill));
+  }
+
+  .shiny-sec {
+    background: linear-gradient(135deg, 
+      rgb(var(--color)) 0%, 
+      rgb(var(--color-hue, var(--color))) 25%, 
+      rgb(var(--color-fill)) 50%, 
+      rgb(var(--color)) 75%, 
+      rgb(var(--color-hue, var(--color))) 100%
+    );
+    background-size: 400% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shine 3s linear infinite;
+  }
+
+  /* Dark theme adjustments */
+  .dark .shiny-sec {
+    background: linear-gradient(135deg, 
+      rgb(var(--color)) 0%, 
+      rgb(var(--color-hue, var(--color))) 25%, 
+      rgb(var(--color-text-inverted)) 50%, 
+      rgb(var(--color)) 75%, 
+      rgb(var(--color-hue, var(--color))) 100%
+    );
+  }
+
+  @keyframes shine {
+    0% {
+      background-position: 100% 50%;
+    }
+    30%,
+    70% {
+      background-position: 0% 50%;
+    }
+  }
+</style>

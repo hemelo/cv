@@ -22,3 +22,11 @@ pnpm-debug.log*
 
 # local folders
 .history
+
+#ide files
+.vscode
+.idea
+.cursorrules
+.cursorignore
+.cursorignore
+.cursor

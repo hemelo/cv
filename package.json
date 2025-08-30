@@ -6,6 +6,9 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
+    "lint": "astro check",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -14,6 +17,7 @@
     "@astrojs/tailwind": "^5.1.0",
     "astro": "4.3.2",
     "astro-font-picker": "^0.2.1",
+    "astro-i18n": "^2.2.4",
     "hotkeypad": "0.1.0",
     "prettier-plugin-tailwindcss": "^0.6.5",
     "tailwindcss": "^3.4.4",
